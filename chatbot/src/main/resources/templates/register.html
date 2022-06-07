@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th = "http://www.thymeleaf.org">
+<head>
+	<meta charset = "UTF-8">
+	<title>Register</title>
+	<link rel = "stylesheet" href = "/css/style.css">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div>
+	<h3>Add user</h3>
+	<label for = "name">Enter name: </label>
+	<input type = "text" id = "name" aria-placeholder = "name" /><br>
+
+	<label for = "email">Enter email: </label>
+	<input type = "text" id = "email" aria-placeholder = "email" /><br>
+
+	<label for = "username">Enter username: </label>
+	<input type = "text" id = "username" aria-placeholder = "username" /><br>
+
+	<label for = "password">Enter password: </label>
+	<input type = "password" id = "password" aria-placeholder = "password" /><br>
+<!--	<input-->
+<!--			type="hidden"-->
+<!--			th:name="${_csrf.parameterName}"-->
+<!--			th:value="${_csrf.token}" />-->
+
+	<button id = "send">Save</button>
+
+</div>
+</body>
+
+<script>
+	$("#send").click(function () {
+		getData($("#name").val(), $("#email").val(), $("#username").val(), $("#password").val());
+	});
+
+	function getData(name, email, username, password) {
+		$.ajax({
+			url: "/save",
+			data: JSON.stringify({
+				"name": name,
+				"email": email,
+				"username": username,
+				"password": password
+			}),
+			cache: false,
+			type: 'post',
+			dataType: 'json',
+			contentType: "application/json",
+			success: function (data) {
+				console.log(data);
+				alert(data.message);
+				window.location.href = "/";
+			}
+		});
+	}
+</script>
+</html>
