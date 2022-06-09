@@ -1,4 +1,4 @@
-package chatbot.api.enitites;
+package chatbot.chatbot.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,12 +14,13 @@ import javax.persistence.Id;
 @Data
 @Entity
 
-public class Subjects {
+public class Fees {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-
-	String name;
-	Long grade;
+	Long totalAmount;
 	boolean status;
+	String username;
+
+
 }

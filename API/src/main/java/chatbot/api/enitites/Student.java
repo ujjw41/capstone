@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -24,12 +21,16 @@ public class Student {
 	Long libraryCardNumber;
 
 	String name;
+	String username;
 
-	String faculty;
+	@ManyToOne
+	Faculty faculty;
 
-	Date dob;
+//	Date dob;
 
-	String fees;
+	@OneToOne
+	Fees fees;
 
-	String Subjects;
+	@ManyToMany
+	List<Subject> Subject;
 }

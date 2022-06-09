@@ -19,6 +19,6 @@ public class Conversation {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 
-	String user;
+	String username;
 	Date startTime;
 }

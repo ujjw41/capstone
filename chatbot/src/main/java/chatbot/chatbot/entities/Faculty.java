@@ -1,22 +1,24 @@
-package chatbot.chatbot.utilities;
+package chatbot.chatbot.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Subjects {
+@Entity
+public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-
 	String name;
-	Long grade;
-	boolean status;
+
+	@ElementCollection
+	List<String> username;
+	String city;
+
 }

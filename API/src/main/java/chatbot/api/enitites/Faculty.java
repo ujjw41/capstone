@@ -4,19 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Entity
 public class Faculty {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String name;
+
+	@ElementCollection
+	List<String> username;
 	String city;
-	String faculty;
+
 }

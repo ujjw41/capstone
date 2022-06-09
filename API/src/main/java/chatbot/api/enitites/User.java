@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import java.util.ArrayList;
+import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
@@ -30,8 +32,11 @@ public class User {
 	@Column(nullable = false)
 	String password;
 
-	@Column(columnDefinition = "varchar(255) default 'USER'")
-	String role = "ROLE_USER";
+//	@Column(columnDefinition = "varchar(255)")
+//	String role = "ROLE_USER";
+
+		@ManyToMany(fetch = FetchType.EAGER)
+		Collection<Role> roles = new ArrayList<>();
 
 	@Column(columnDefinition = "boolean default true")
 	Boolean enabled = true;

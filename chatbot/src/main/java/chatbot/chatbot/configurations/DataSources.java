@@ -17,7 +17,6 @@ public class DataSources {
 		dataSourceBuilder.url("jdbc:mysql://localhost:3306/chatbot");
 		dataSourceBuilder.username("root");
 		dataSourceBuilder.password("ujjwal");
-
 		return dataSourceBuilder.build();
 
 	}

@@ -20,5 +20,7 @@ public class Fees {
 	Long id;
 	Long totalAmount;
 	boolean status;
+	String username;
+
 
 }
