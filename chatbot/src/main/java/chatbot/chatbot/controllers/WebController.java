@@ -2,6 +2,7 @@ package chatbot.chatbot.controllers;
 
 
 import chatbot.chatbot.entities.*;
+import chatbot.chatbot.services.ChatBotService;
 import chatbot.chatbot.services.StudentService;
 import chatbot.chatbot.services.UserService;
 import com.auth0.jwt.JWT;
@@ -14,6 +15,7 @@ import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -30,31 +32,50 @@ import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @Controller
-@RequestMapping("/0")
+@RequestMapping("/web")
 public class WebController {
 	@Autowired
 	UserService userService;
 	@Autowired
 	StudentService studentService;
+	@Autowired
+	ChatBotService chatBotService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@GetMapping(value = "/")
 	public String index() {
 		return "index";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@GetMapping(value = "/register")
 	public String registerUser() {
 		return "register_user";
 	}
 
-	@RequestMapping(value = "/student/register", method = RequestMethod.GET)
+	@GetMapping(value = "/student/register")
 	public String registerStudent() {
 		return "register_student";
 	}
 
-	@RequestMapping(value = "/admin" , method = RequestMethod.GET)
-	public String admin(){
-		return "admin";
+	@GetMapping(value = "/conversations" )
+	public String conversations(){
+		return "conversations";
+	}
+
+	@GetMapping(value = "/qna/view" )
+	public String qnAView(Model model){
+		List<QnA> allQnA = chatBotService.getAllQnA();
+		model.addAttribute("qnas", allQnA);
+		return "qna_view";
+	}
+
+	@GetMapping(value = "/qna" )
+	public String qnASave(){
+		return "qna_save";
+	}
+
+	@GetMapping(value = "/qna/delete" )
+	public String qnA(){
+		return "qna_delete";
 	}
 
 
@@ -112,14 +133,7 @@ public class WebController {
 //
 //	}
 
-	@ResponseBody
-	@WriteOperation
-	@PostMapping("/student/save")
-	public ResponseEntity<Student> saveStudent(@RequestBody Student student) {
-		studentService.saveStudent(student);
-		URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/student/save").toUriString());
-		return ResponseEntity.created(uri).body(student);
-	}
+
 
 	@GetMapping("/students/all")
 	public ResponseEntity<List<Student>> getStudents() {

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatInput {
-    Long id;
+public class ChatBody {
+    String message;
+    Long index;
 }

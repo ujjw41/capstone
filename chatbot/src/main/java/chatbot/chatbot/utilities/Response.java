@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Response {
 	String status;
+
 	String data;
 	Long convId;
 }

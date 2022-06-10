@@ -32,10 +32,11 @@ public class ChatbotApplication {
 				userService.saveUser(new User(null, "test", "test@g.in", "test", "test", "ROLE_STUDENT", true));
 				userService.saveUser(new User(null, "tester", "tester@g.in", "tester", "tester", "ROLE_TEACHER", true));
 
-				chatBotService.saveQnA(new QnA( null, "Campus Size" , "1200acres" , "Campus" ));
-				chatBotService.saveQnA(new QnA( null, "Campus Color" , "Green" , "Campus" ));
-				chatBotService.saveQnA(new QnA( null, "Number of Departments" , "10" , "Department" ));
-				chatBotService.saveQnA(new QnA( null, "Male Female Ratio" , "50:50" , "Ratio" ));
+				chatBotService.saveQnA(new QnA(null, "vistula", List.of("name"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "1200acres", List.of("size"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "Green", List.of("color"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "10", List.of( "number"), "department"));
+				chatBotService.saveQnA(new QnA(null, "50:50", List.of("ratio", "male", "female"), "ratio"));
 
 //				userService.saveRole(new Role(null, "ROLE_USER"));
 //				userService.saveRole(new Role(null, "ROLE_ADMIN"));
@@ -75,18 +76,18 @@ public class ChatbotApplication {
 				studentService.addFacultyToStudent("ujjwal", "it");
 				studentService.addFacultyToStudent("sattyda", "arts");
 				studentService.addFacultyToStudent("test", "music");
-				studentService.addFacultyToStudent("ujjwalone", "kungfu");
+//				studentService.addFacultyToStudent("ujjwalone", "kungfu");
 
 				studentService.addFeesToStudent("ujjwal");
 				studentService.addFeesToStudent("sattyda");
 				studentService.addFeesToStudent("tester");
-				studentService.addFeesToStudent("ujjwaltwo");
+//				studentService.addFeesToStudent("ujjwaltwo");
 
 				studentService.addSubjectToStudent("ujjwal");
 				studentService.addSubjectToStudent("sattyda");
 				studentService.addSubjectToStudent("test");
 				studentService.addSubjectToStudent("tester");
-				studentService.addSubjectToStudent("ujjwalone");
+//				studentService.addSubjectToStudent("ujjwalone");
 
 			} catch (Exception e) {
 				throw new NullPointerException("null found exception");

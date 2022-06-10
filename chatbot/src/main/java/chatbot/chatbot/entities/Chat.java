@@ -15,8 +15,9 @@ public class Chat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	Long conversation;
+	Long conversationId;
 	String username;
+
 	@Column(columnDefinition = "TEXT")
 	String message;
 	String owner;

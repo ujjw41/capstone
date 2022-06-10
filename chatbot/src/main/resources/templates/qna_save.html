@@ -3,16 +3,13 @@
 <head>
 	<meta charset = "UTF-8">
 	<title>QnA</title>
-	<link rel = "stylesheet" href = "/css/style.css">
+	<link rel = "stylesheet" href = "/styles/commonstyle.css">
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 <div>
 	<h3>Add QnA</h3>
-	<label for = "id">Enter Id: </label>
-	<input type = "text" id = "id" placeholder = "Id" /><br>
-
 	<label for = "answer">Enter answer: </label>
 	<input type = "text" id = "answer" aria-placeholder = "answer" /><br>
 
@@ -29,14 +26,13 @@
 
 <script>
 	$("#send").click(function () {
-		getData($("#id").val(), $("#answer").val(), $("#keywords").serializeArray(), $("#category").val());
+		getData($("#answer").val(), $("#keywords").serializeArray(), $("#category").val());
 	});
 	function getData(answer, keywords, category) {
 
 		$.ajax({
-			url: "/admin/qna/update",
+			url: "/admin/qna/save",
 			data: JSON.stringify({
-				"id": parseInt(id),
 				"answer": answer,
 				"keywords": keywords.toArray(),
 				"category": category

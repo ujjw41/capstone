@@ -8,6 +8,7 @@ import chatbot.chatbot.repositories.FacultyRepo;
 import chatbot.chatbot.repositories.FeesRepo;
 import chatbot.chatbot.repositories.StudentRepo;
 import chatbot.chatbot.repositories.SubjectRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Slf4j
 public class StudentService {
 	@Autowired
 	StudentRepo studentRepo;
@@ -25,7 +27,6 @@ public class StudentService {
 	FeesRepo feesRepo;
 	@Autowired
 	SubjectRepo subjectRepo;
-
 
 	public void saveStudent(Student student) {
 //		student.setUsername(principal.getName());
@@ -47,10 +48,13 @@ public class StudentService {
 	public void addFacultyToStudent(String username, String facultyName) {
 		Student student = studentRepo.findByUsername(username);
 		if (student == null){
+			log.error("username not found : {}", username);
 			return;
 		}
 		Faculty faculty = facultyRepo.findByName(facultyName);
 		if (faculty == null){
+			log.error("faculty not found: {}", facultyName);
+
 			return;
 		}
 		student.setFaculty(faculty);
@@ -61,10 +65,13 @@ public class StudentService {
 	public void addFeesToStudent(String username) {
 		Student student = studentRepo.findByUsername(username);
 		if (student == null){
+			log.error("username not found: {}", username);
+
 			return;
 		}
 		Fees fees = feesRepo.findByUsername(username);
 		if (fees == null){
+			log.error("fees not found for: {}", username);
 			return;
 		}
 		student.setFees(fees);
@@ -75,10 +82,12 @@ public class StudentService {
 	public void addSubjectToStudent(String username) {
 		Student student = studentRepo.findByUsername(username);
 		if (student == null){
+			log.error("username not found: {}", username);
 			return;
 		}
 		List<Subject> subjectList = subjectRepo.findAllByUsername(username);
 		if (subjectList.isEmpty()){
+			log.error("no subjects were found for the username: {}", username);
 			return;
 		}
 		student.setSubject(subjectList);

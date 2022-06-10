@@ -2,10 +2,25 @@
 <html lang = "en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th = "http://www.thymeleaf.org">
 <head>
 	<meta charset = "UTF-8">
-	<title>view qna</title>
-	<link rel = "stylesheet" href = "/commonstyle.css">
+	<title>qna</title>
+	<link rel = "stylesheet" href = "/styles/commonstyle.css">
 </head>
 <body>
-
+<div>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Answers</th>
+			<th>keywords</th>
+			<th>Category</th>
+		</tr>
+		<tr th:each = "qna : ${qnas}">
+			<td th:text = "${qna.id}"></td>
+			<td th:text = "${qna.answer}"></td>
+			<td th:text = "${qna.keywords}"></td>
+			<td th:text = "${qna.category}"></td>
+		</tr>
+	</table>
+</div>
 </body>
 </html>

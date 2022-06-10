@@ -1,6 +1,5 @@
 CAPSTONE PROJECT
 ================================
-
 Title : Create a Chatbot for a Website.
 
 Short Description:

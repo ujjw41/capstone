@@ -11,7 +11,7 @@ public interface ChatRepo extends JpaRepository<Chat, Long> {
 	@Override
 	List<Chat> findAll();
 
-	List<Chat> findAllByConversation(Long id);
+	List<Chat> findAllByConversationId(Long id);
 
 
 }

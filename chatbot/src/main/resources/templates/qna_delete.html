@@ -1,12 +1,40 @@
 <!DOCTYPE html>
-<html lang = "en" xmlns = "http://www.w3.org/1999/xhtml" xmlns:th = "http://www.thymeleaf.org">
+<html lang = "en">
 <head>
 	<meta charset = "UTF-8">
 	<title>Delete a qna</title>
-	<link rel = "stylesheet" href = "/commonstyle.css">
-
+	<link rel = "stylesheet" href = "/styles/commonstyle.css">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+<div>
+	<h3>Delete a QNA</h3>
+	<label for = "id">Enter ID of the qna you would like to delete: </label>
+	<input type = "text" id = "id" aria-placeholder = "Id" />
 
+	<button id = "send">Delete</button>
+
+</div>
 </body>
+
+<script>
+	$("#send").click(function () {
+		getData($("#id").val());
+	});
+
+	function getData(input) {
+		$.ajax({
+			url: "/admin/qna/delete",
+			data: JSON.stringify({"id": parseInt(input)}),
+			cache: false,
+			type: 'delete',
+			dataType: 'json',
+			contentType: "application/json",
+			success: function (data) {
+				console.log(data);
+			}
+		});
+	}
+</script>
 </html>
