@@ -3,28 +3,57 @@
 <head>
 	<meta charset = "UTF-8">
 	<title>Register user</title>
-	<link rel = "stylesheet" href = "/styles/commonstyle.css">
+	<link rel = "stylesheet" href = "/styles/form.css">
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
 </head>
 <body>
-<div>
-	<h3>Add user</h3>
-	<label for = "name">Enter name: </label>
-	<input type = "text" id = "name" aria-placeholder = "name" /><br>
+<nav class = "navbar navbar-expand-lg navbar-light bg-light">
+	<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarTogglerDemo01"
+			aria-controls = "navbarTogglerDemo01" aria-expanded = "false" aria-label = "Toggle navigation">
+		<span class = "navbar-toggler-icon"></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarTogglerDemo01">
+		<a class = "navbar-brand" href = "/web/">Chat-bot</a>
+		<ul class = "navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class = "nav-item active">
+				<a class = "nav-link" href = "/web/register">Register user <span class = "sr-only">(current)</span></a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/student/register">Register student</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/conversations">conversations</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/view">view qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/delete">delete qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/save">save qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/update">update qna</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<br>
 
-	<label for = "email">Enter email: </label>
-	<input type = "text" id = "email" aria-placeholder = "email" /><br>
+<form id = "msform">
+	<h2 class = "fs-title">Create your account</h2>
+	<input type = "text" id = "name" placeholder = "name" />
+	<input type = "text" id = "email" name = "email" placeholder = "Email" />
+	<input type = "text" id = "username" placeholder = "username" /><br>
+	<input type = "password" id = "password" name = "pass" placeholder = "Password" />
+	<input type = "button" id = "send" name = "next" class = "next action-button" value = "save" />
+</form>
 
-	<label for = "username">Enter username: </label>
-	<input type = "text" id = "username" aria-placeholder = "username" /><br>
-
-	<label for = "password">Enter password: </label>
-	<input type = "password" id = "password" aria-placeholder = "password" /><br>
-
-	<button id = "send">Save</button>
-
-</div>
 </body>
 
 <script>

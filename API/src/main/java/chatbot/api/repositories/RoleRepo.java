@@ -1,6 +1,6 @@
 package chatbot.api.repositories;
 
-import chatbot.chatbot.entities.Role;
+import chatbot.api.enitites.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepo extends JpaRepository<Role, Long> {

@@ -14,10 +14,16 @@
 	<script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 	<script src = 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
 
+	<link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+		  integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin = "anonymous">
+	<script src = "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+			integrity = "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin = "anonymous"></script>
 
 	<style>
 		.conv-box {
-			border: 1px solid greenyellow;
+			border: 1px solid aquamarine;
 			border-radius: 12px;
 			margin: 5px;
 			width: 100%;
@@ -27,9 +33,6 @@
 		.myactive {
 			background-color: #cccccc;
 		}
-	</style>
-
-	<style>
 
 		#chat-circle {
 			position: fixed;
@@ -200,19 +203,17 @@
 		}
 
 		.chat-msg.user > .msg-avatar img {
-			width: 45px;
-			height: 45px;
+			width: 50px;
+			height: 50px;
 			border-radius: 50%;
 			float: left;
-			width: 15%;
 		}
 
 		.chat-msg.self > .msg-avatar img {
-			width: 45px;
-			height: 45px;
+			width: 50px;
+			height: 50px;
 			border-radius: 50%;
 			float: right;
-			width: 15%;
 		}
 
 		.cm-msg-text {
@@ -264,10 +265,49 @@
 			margin-bottom: 70px;
 		}
 
-	</style>
+		<!--    </style>
+
 </head>
+
 <body style = "text-align: center">
-<h3>Admin PANEL</h3>
+<!--<div w3-include-html = "navbar.html"></div>-->
+<nav class = "navbar navbar-expand-lg navbar-light bg-light">
+	<button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarTogglerDemo01"
+			aria-controls = "navbarTogglerDemo01" aria-expanded = "false" aria-label = "Toggle navigation">
+		<span class = "navbar-toggler-icon"></span>
+	</button>
+	<div class = "collapse navbar-collapse" id = "navbarTogglerDemo01">
+		<a class = "navbar-brand" href = "/web/">Chat-bot</a>
+		<ul class = "navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class = "nav-item active">
+				<a class = "nav-link" href = "/web/register">Register user <span class = "sr-only">(current)</span></a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/student/register">Register student</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/conversations">conversations</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/view">view qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/delete">delete qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/save">save qna</a>
+			</li>
+			<li class = "nav-item">
+				<a class = "nav-link" href = "/web/admin/qna/update">update qna</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+<br>
+<br>
+
+<h3>Admin PANEL</h3><br>
+<br>
 <div class = "row">
 	<div class = "col-3">
 		<h4>Conversations: </h4>
@@ -286,7 +326,7 @@
 	var checker = true;
 
 	$.ajax({
-		url: "/conversations",
+		url: "/admin/conversations",
 		data: JSON.stringify({}),
 		cache: false,
 		type: 'post',
@@ -322,7 +362,7 @@
 
 	function create_chats(id) {
 		$.ajax({
-			url: "/chats",
+			url: "/admin/chats",
 			data: JSON.stringify({'id': id}),
 			cache: false,
 			type: 'post',

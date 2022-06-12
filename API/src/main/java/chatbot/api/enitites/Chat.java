@@ -5,22 +5,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Date;
 
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity
-
-public class Subject {
+public class Chat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	String name;
-	Double grade = 6D;
-	boolean status = true;
+	Long conversationId;
+	String username;
 
-	@ElementCollection
-	List<String> username;
-
+	@Column(columnDefinition = "TEXT")
+	String message;
+	String owner;
+	Date time;
 }

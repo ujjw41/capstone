@@ -17,8 +17,8 @@ public class Subject {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
 	String name;
-	Double grade;
-	boolean status;
+	Double grade = 6D;
+	boolean status = true;
 
 	@ElementCollection
 	List<String> username;

@@ -1,6 +1,6 @@
 package chatbot.api.repositories;
 
-import chatbot.chatbot.entities.Conversation;
+import chatbot.api.enitites.Conversation;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

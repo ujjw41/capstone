@@ -4,11 +4,27 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: CHAT
-          uri: lb://CHAT
-          predicates:
-            - Path=/user/**
         - id: API-SERVICE
           uri: lb://API-SERVICE
           predicates:
+            - Path=/app/**
+        - id: CHAT
+          uri: lb://CHAT
+          predicates:
+            - Path=/web/**
+        - id: CHAT
+          uri: lb://CHAT
+          predicates:
+            - Path=/admin/**
+        - id: CHAT
+          uri: lb://CHAT
+          predicates:
             - Path=/api/**
+        - id: CHAT
+          uri: lb://CHAT
+          predicates:
+            - Path=/login
+        - id: CHAT
+          uri: lb://CHAT
+          predicates:
+            - Path=/

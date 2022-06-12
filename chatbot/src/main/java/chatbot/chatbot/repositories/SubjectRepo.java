@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SubjectRepo extends JpaRepository<Subject, Long> {
 	List<Subject> findAllByUsername(String username);
+
+	Subject findByName(String name);
 }

@@ -1,12 +1,12 @@
-package chatbot.chatbot.services;
+package chatbot.api.services;
 
-import chatbot.chatbot.entities.Chat;
-import chatbot.chatbot.entities.Conversation;
-import chatbot.chatbot.entities.QnA;
-import chatbot.chatbot.entities.User;
-import chatbot.chatbot.repositories.ChatRepo;
-import chatbot.chatbot.repositories.ConversationRepo;
-import chatbot.chatbot.repositories.QnARepo;
+import chatbot.api.enitites.Chat;
+import chatbot.api.enitites.Conversation;
+import chatbot.api.enitites.QnA;
+import chatbot.api.enitites.User;
+import chatbot.api.repositories.ChatRepo;
+import chatbot.api.repositories.ConversationRepo;
+import chatbot.api.repositories.QnARepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,8 @@ public class ChatBotService {
 	@Autowired
 	QnARepo qnARepo;
 
+//	@Autowired
+//	UserService userService;
 
 	public Conversation createConversation(String username) {
 		Conversation conversation = new Conversation();
@@ -66,7 +68,7 @@ public class ChatBotService {
 					keywords.add(temp);
 				}
 			});
-			if (keywords.isEmpty() ) { // || keywords.get(0).isEmpty()
+			if (keywords.isEmpty()) { // || keywords.get(0).isEmpty()
 				log.info("couldn't find the answer for this question");
 				return "Sorry, I'm Confused. Please try something else";
 			} else {

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -16,10 +17,10 @@ public class QnA {
 	Long id;
 
 	@Column(columnDefinition="TEXT")
-	String question;
-
-	@Column(columnDefinition="TEXT")
 	String answer;
 
-	String keywords;
+	@ElementCollection
+	List<String> keywords;
+
+	String category;
 }

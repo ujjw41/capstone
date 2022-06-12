@@ -19,6 +19,6 @@ public class Faculty {
 
 	@ElementCollection
 	List<String> username;
-	String city;
+	String city = "warsaw";
 
 }

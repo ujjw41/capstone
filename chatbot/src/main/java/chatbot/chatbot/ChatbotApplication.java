@@ -18,10 +18,6 @@ public class ChatbotApplication {
 		SpringApplication.run(ChatbotApplication.class, args);
 	}
 
-//	@Bean
-//	BCryptPasswordEncoder passwordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
 
 	@Bean
 	CommandLineRunner run(UserService userService, StudentService studentService, ChatBotService chatBotService) {
@@ -32,22 +28,16 @@ public class ChatbotApplication {
 				userService.saveUser(new User(null, "test", "test@g.in", "test", "test", "ROLE_STUDENT", true));
 				userService.saveUser(new User(null, "tester", "tester@g.in", "tester", "tester", "ROLE_TEACHER", true));
 
-				chatBotService.saveQnA(new QnA(null, "vistula", List.of("name"), "campus"));
-				chatBotService.saveQnA(new QnA(null, "1200acres", List.of("size"), "campus"));
-				chatBotService.saveQnA(new QnA(null, "Green", List.of("color"), "campus"));
-				chatBotService.saveQnA(new QnA(null, "10", List.of( "number"), "department"));
-				chatBotService.saveQnA(new QnA(null, "50:50", List.of("ratio", "male", "female"), "ratio"));
-
-//				userService.saveRole(new Role(null, "ROLE_USER"));
-//				userService.saveRole(new Role(null, "ROLE_ADMIN"));
-//				userService.saveRole(new Role(null, "ROLE_TEACHER"));
-//				userService.saveRole(new Role(null, "ROLE_STUDENT"));
-//				userService.saveRole(new Role(null, "ROLE_GOD"));
-//
-//				userService.addRoleToUser("ujjwal", "ROLE_ADMIN");
-//				userService.addRoleToUser("sattyda", "ROLE_USER");
-//				userService.addRoleToUser("test", "ROLE_STUDENT");
-//				userService.addRoleToUser("ujjwal", "ROLE_TEACHER");
+				chatBotService.saveQnA(new QnA(null, "Hello, How may I be of service?", List.of("hello", "hi", "whatsup"), "greeting"));
+				chatBotService.saveQnA(new QnA(null, "I loved talking with you, looking forward to seeing you again", List.of("bye", "end"), "greeting"));
+				chatBotService.saveQnA(new QnA(null, "name of the university is Vistula", List.of("name", "university"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "size of the campus is 1000 sq.km.", List.of("size", "km"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "color of the university is best type of blue", List.of("color", "blue"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "There are currently 15 departments", List.of("number"), "department"));
+				chatBotService.saveQnA(new QnA(null, "current ratio of male:female is 50:50", List.of("ratio", "male", "female"), "ratio"));
+				chatBotService.saveQnA(new QnA(null, "yikes", List.of("ranking", "rank"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "Tuition fee is 3500 Euro", List.of("fee", "price"), "campus"));
+				chatBotService.saveQnA(new QnA(null, "sorry classes are full", List.of("application", "enroll"), "campus"));
 
 				studentService.saveFaculty(new Faculty(null, "it", List.of("ujjwal", "testing"), "warsaw"));
 				studentService.saveFaculty(new Faculty(null, "arts", List.of("sattyda"), "banglore"));
@@ -66,7 +56,7 @@ public class ChatbotApplication {
 				studentService.saveSubject(new Subject(null, "cryptology", 4.2D, true, List.of("test", "testing")));
 				studentService.saveSubject(new Subject(null, "frontend", 1D, false, List.of("ujjwalone", "testing")));
 				studentService.saveSubject(new Subject(null, "database", 7D, true, List.of("john")));
-
+//
 				studentService.saveStudent(new Student(null, 52911L, 1005L, "ujjwal", "ujjwal", null, null, null));
 				studentService.saveStudent(new Student(null, 52678L, 1L, "sattyda", "sattyda", null, null, null));
 				studentService.saveStudent(new Student(null, 24975L, 1053L, "test", "test", null, null, null));

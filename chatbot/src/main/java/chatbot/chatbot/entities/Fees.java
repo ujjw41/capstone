@@ -18,8 +18,8 @@ public class Fees {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long id;
-	Long totalAmount;
-	boolean status;
+	Long totalAmount= 3500L;
+	boolean status= false;
 	String username;
 
 

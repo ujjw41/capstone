@@ -17,16 +17,12 @@ public class Student {
 	Long id;
 
 	Long studentId;
-
 	Long libraryCardNumber;
-
 	String name;
 	String username;
 
 	@ManyToOne
 	Faculty faculty;
-
-//	Date dob;
 
 	@OneToOne
 	Fees fees;
